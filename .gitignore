@@ -1,0 +1,5 @@
+//nodeMdules
+node_modules/
+
+//typescprit compiler file
+dist/
