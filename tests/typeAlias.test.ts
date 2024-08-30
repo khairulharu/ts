@@ -42,7 +42,7 @@ describe('TypeAlias', function () {
      };
 
      expect(Alok.id).toBe(defaultChar.id)
-     console.info(processDataAlias(Alok))
+     console.info(processDataAlias(defaultChar))
 
    });
 
