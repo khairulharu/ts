@@ -53,4 +53,36 @@ describe('Function', function () {
           expect(sayMyName("Khairul")).toBe("Hello Khairul")
           expect(sayMyName("Khairul", "Aswad")).toBe("Hello Khairul Aswad")
      });
+
+     it('should can support function overloading', function () {
+          function callMe(value: number): number;
+          function callMe(value: string): string;
+          //implementasion of this overloading function
+          function callMe(value: any): any {
+               if (typeof value === "string") {
+                    return `Hello ${value}`;
+               }else{
+                    return value + 2;
+               }
+          }
+
+          expect(callMe("aswad")).toBe("Hello aswad");
+          expect(callMe(100)).toBe(102);
+     });
+
+     it('should can use function as parameter', function () {
+          function showYourKDA(kda: number, calculate: (value: number) => number){
+               return `YOur Kda IS ${calculate(kda)}`
+          }
+
+          function kdaCalculate(kda:number): number {
+               return kda - 0.5;
+          }
+          
+          expect(showYourKDA(4, kdaCalculate)).toBe("YOur Kda IS 3.5");
+          expect(showYourKDA(6, function (value: number): number {
+               return value - 2;
+          })).toBe("YOur Kda IS 4")
+          expect(showYourKDA(3, (value: number): number => value + 3)).toBe("YOur Kda IS 6")
+     });
 });
