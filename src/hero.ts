@@ -3,4 +3,10 @@ export interface Hero {
   name: string;
   skill: boolean;
   pasif: string;
+  readonly nib: string;
+  readonly npwp: string;
+}
+
+export interface UpdatedHero extends Hero {
+  jungleEarning: number;
 }
