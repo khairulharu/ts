@@ -5,8 +5,14 @@ describe('variable', function (){
           let isRich: boolean = false;
           let charLevel: number = 5 ;
 
-          console.info(charName)
-          console.info(isRich)
-          console.info(charLevel)
+          const myName: string[] = [];
+          
+          myName[0] = "bisa";
+
+          console.info(myName[0]);
+
+          console.info(charName);
+          console.info(isRich);
+          console.info(charLevel);
      });
 });
