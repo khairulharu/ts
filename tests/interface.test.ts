@@ -1,4 +1,4 @@
-import { Hero, UpdatedHero } from "../src/hero"
+import { Char, Hero, UpdatedHero } from "../src/hero"
 
 describe('Interface', function() {
 
@@ -114,13 +114,18 @@ describe('Interface', function() {
           //karena jika tidak saat kita memakai datanya itu akan error
           
 
-          const manusia: any = {
+          //misalkan jika terdapat sebuah function atau kita ngecall sebuah api yang return nya itu object any
+          //lalu kita ingin mengubah dia ke dalam sebuah interface agar static type biar lebih mudah ngodingnya
+
+          const responseGetChar: any = {
                name: "eko",
                eko: "ekoooo"
           }
 
-          const manusia2: Hero = manusia as Hero;
+          //misalkan caranya di sini mudah yitu kita hanya perlu membuat sebuah interface yang mirip dengan return nya
+          //jadi kita bisa menyimpan response tersebut sesuai dengan interface yang kita buat atau mengikuti response yang kita buat.
+          const realCharacter: Char = responseGetChar as Char;
 
-          console.info(manusia2.name)
+          console.info(realCharacter.eko)
      })
 })

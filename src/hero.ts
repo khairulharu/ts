@@ -10,3 +10,8 @@ export interface Hero {
 export interface UpdatedHero extends Hero {
   jungleEarning: number;
 }
+
+export interface Char {
+  name: string;
+  eko: "string";
+}
