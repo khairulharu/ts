@@ -72,17 +72,21 @@ describe('Function', function () {
 
      it('should can use function as parameter', function () {
           function showYourKDA(kda: number, calculate: (value: number) => number){
-               return `YOur Kda IS ${calculate(kda)}`
+               return calculate(kda)
           }
 
           function kdaCalculate(kda:number): number {
                return kda - 0.5;
           }
           
-          expect(showYourKDA(4, kdaCalculate)).toBe("YOur Kda IS 3.5");
+          expect(showYourKDA(4, kdaCalculate)).toBe(3.5);
+
           expect(showYourKDA(6, function (value: number): number {
                return value - 2;
-          })).toBe("YOur Kda IS 4")
-          expect(showYourKDA(3, (value: number): number => value + 3)).toBe("YOur Kda IS 6")
+          })).toBe(4)
+
+          expect(showYourKDA(3, (value: number): number => value + 3)).toBe(6);
+          
+          expect(showYourKDA(5, (kda: number): number => kda + 5)).toBe(10);
      });
 });
